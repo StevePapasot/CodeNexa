@@ -68,7 +68,8 @@
 
 body {
   background-color: black;
-  font-family:'Courier New', Courier, monospace
+  font-family:'Courier New', Courier, monospace;
+  color: white;
 }
 
 @layer base {
