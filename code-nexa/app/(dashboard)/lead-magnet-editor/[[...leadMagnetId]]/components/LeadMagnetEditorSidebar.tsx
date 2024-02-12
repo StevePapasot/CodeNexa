@@ -46,7 +46,7 @@ function LeadMagnetEditorSidebar({
         {EDITOR_OPTIONS.map((option) => (
           <button
             key={option.value}
-            className="mt-4 flex h-[28px] items-center text-xl font-semibold text-white"
+            className="mt-4 flex h-[30px] items-center text-lg font-semibold text-white"
             onClick={() => setSelectedEditor(option.value)}
           >
             <span className="text-purple-600">
