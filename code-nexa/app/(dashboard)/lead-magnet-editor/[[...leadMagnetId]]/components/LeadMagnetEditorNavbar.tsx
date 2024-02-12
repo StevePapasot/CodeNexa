@@ -118,14 +118,14 @@ function LeadMagnetEditorNavbar() {
                 ...prev,
                 name: e.target.value,
               }))
-            }
+            }style={{ color: 'black' }}
           />
         ) : (
           <span className="text-xl font-bold">{edittedLeadMagnet.name}</span>
         )}
         {/*  Edit / Save */}
         {editing ? (
-          <div className="flex flex-row text-purple-500">
+          <div className="flex flex-row text-purple-600">
             <BsCheck
               className="cursor-pointer"
               size={25}

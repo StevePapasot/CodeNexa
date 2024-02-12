@@ -49,7 +49,7 @@ function LeadMagnetEditorSidebar({
             className="mt-4 flex h-[28px] items-center text-xl font-semibold text-white"
             onClick={() => setSelectedEditor(option.value)}
           >
-            <span className="text-purple-400">
+            <span className="text-purple-600">
               <option.icon />
             </span>
             {!isSidebarCollapsed && (
