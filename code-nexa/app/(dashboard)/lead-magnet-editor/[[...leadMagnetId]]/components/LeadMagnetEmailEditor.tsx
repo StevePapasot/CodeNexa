@@ -13,7 +13,7 @@ function LeadMagnetEmailEditor() {
           Email Capture Editor
         </h1>
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-bold text-black">
+          <label className="mb-2 block text-lg font-bold text-white">
             Email Capture Prompt
           </label>
           <input
@@ -31,7 +31,7 @@ function LeadMagnetEmailEditor() {
         </div>
       </div>
       <div className="purple-dotted-pattern flex w-1/2 flex-col">
-        <div className="mx-12 my-8 flex max-w-lg rounded-lg bg-white p-4 shadow-lg lg:mx-auto">
+        <div className="mx-12 my-8 flex max-w-lg rounded-lg bg-white text-black  p-4 shadow-lg lg:mx-auto">
           <LeadMagnetEmailCapturePreview
             leadMagnetId={edittedLeadMagnet.id}
             emailCapturePrompt={edittedLeadMagnet.draftEmailCapture}
