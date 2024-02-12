@@ -48,6 +48,7 @@
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "tiptap": "^1.32.2",
+    "uploadthing": "^6.3.3",
     "vue": "^3.4.18",
     "zod": "^3.22.4"
   },
