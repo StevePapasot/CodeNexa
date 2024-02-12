@@ -107,7 +107,7 @@ function LeadMagnetEditorNavbar() {
         <BsArrowLeft
           size={20}
           className="pr-3 w-fit cursor-pointer"
-          onClick={() => void router.push("/lead-magnets")}
+          onClick={() => void router.push("/lead-magnet")}
         />
         {/* Input / Name */}
         {editing ? (
