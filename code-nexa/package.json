@@ -45,7 +45,8 @@
     "stripe": "^14.16.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "tiptap": "^1.32.2"
+    "tiptap": "^1.32.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
