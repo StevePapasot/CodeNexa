@@ -15,13 +15,13 @@ async function LandingPageNavbar() {
           className="text-3xl font-bold text-white no-underline "
           href="/"
         >
-          CodeNexaLabs
+          CodeNexaMagnet
         </Link>
       </div>
       <div className="text-black font-semibold text-lg">
         {user ? (
           <div className="flex flex-row gap-x-4 items-center">
-            <Link href="/lead-magnets">
+            <Link href="/lead-magnet">
               <Button variant="outline">Open App</Button>
             </Link>
             <UserButton />
