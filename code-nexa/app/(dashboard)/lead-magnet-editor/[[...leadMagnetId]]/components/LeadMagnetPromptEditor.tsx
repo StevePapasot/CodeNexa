@@ -13,7 +13,7 @@ function LeadMagnetPromptEditor() {
           AI Prompt Editor
         </h1>
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-bold text-gray-700">
+          <label className="mb-2 block text-sm font-bold text-white">
             Prompt
           </label>
           <textarea

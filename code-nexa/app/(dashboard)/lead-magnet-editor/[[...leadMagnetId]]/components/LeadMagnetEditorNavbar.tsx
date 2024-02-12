@@ -101,7 +101,7 @@ function LeadMagnetEditorNavbar() {
   };
 
   return (
-    <div className="flex w-full flex-row items-center justify-between border-b-[1px] border-solid border-gray-200 bg-white p-3 text-gray-600">
+    <div className="flex w-full flex-row items-center justify-between border-b-[1px] border-solid border-purple-600 bg-black p-3 text-white-600">
       <div className="flex flex-row items-center">
         {/*sGo Back */}
         <BsArrowLeft
@@ -131,7 +131,7 @@ function LeadMagnetEditorNavbar() {
               size={25}
               onClick={() => void saveName()}
             />
-            <span className="border-r-2 mx-1 border-gray-300" />
+            <span className="border-r-2 mx-1 border-purple-600" />
             <span
               className="ml-[5px] cursor-pointer font-normal"
               onClick={cancelSaveName}

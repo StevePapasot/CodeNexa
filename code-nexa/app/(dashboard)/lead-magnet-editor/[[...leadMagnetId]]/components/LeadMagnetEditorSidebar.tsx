@@ -35,7 +35,7 @@ function LeadMagnetEditorSidebar({
 }: LeadMagnetEditorSidebarProps) {
   return (
     <div
-      className="flex h-full w-fit flex-col border-r border-gray-200 bg-white transition-all duration-300 relative overflow-y-clip"
+      className="flex h-full w-fit flex-col border-r border-purple-600 bg-black  transition-all duration-300 relative overflow-y-clip"
       style={{ height: `calc(100vh - 131px)` }}
     >
       <div
@@ -46,7 +46,7 @@ function LeadMagnetEditorSidebar({
         {EDITOR_OPTIONS.map((option) => (
           <button
             key={option.value}
-            className="mt-4 flex h-[28px] items-center text-xl font-semibold text-gray-600"
+            className="mt-4 flex h-[28px] items-center text-xl font-semibold text-white"
             onClick={() => setSelectedEditor(option.value)}
           >
             <span className="text-purple-400">
@@ -59,7 +59,7 @@ function LeadMagnetEditorSidebar({
         ))}
         <button
           onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-          className="absolute right-4 bottom-4 text-2xl text-purple-400"
+          className="absolute right-4 bottom-4 text-2xl text-purple-600"
         >
           {isSidebarCollapsed ? (
             <TbLayoutSidebarRightCollapse />
