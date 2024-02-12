@@ -34,13 +34,13 @@ const Hero = () => {
     <div className="mx-4 mb-14 mt-6 flex flex-1 flex-col items-center text-center sm:mb-12 md:mb-32 md:mt-20">
       <h1 className="max-w-5xl text-2xl font-bold sm:text-4xl md:text-6xl">
         Convert Content Into Customers With{" "}
-        <span className="bg-gradient-to-r from-red-400 to-purple-600 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-red-500 to-purple-700 bg-clip-text text-transparent">
           {" "}
           AI Lead Magnets{" "}
         </span>
       </h1>
 
-      <p className="sm:text-md mt-5 max-w-2xl text-sm text-gray-600  md:text-xl">
+      <p className="sm:text-md mt-5 max-w-2xl text-sm text-white md:text-xl">
         LeadConvert helps creators turn regular content into interactive AI
         experiences, effortlessly capturing leads, and nurturing them towards
         your digital products or courses.
@@ -92,11 +92,11 @@ const FeatureCard = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-center rounded-xl border border-purple-200 bg-white p-8 text-center">
-      <div className="mb-4 rounded-full bg-purple-500 p-4 text-white">
+      <div className="mb-4 rounded-full bg-purple-600 p-4 text-white">
         {icon}
       </div>
-      <h2 className="mt-4 text-xl font-light text-purple-500">{title}</h2>
-      <p className="mt-2 italic text-gray-600">{description}</p>
+      <h2 className="mt-4 text-xl font-light text-purple-600">{title}</h2>
+      <p className="mt-2 italic text-gray-800">{description}</p>
     </div>
   );
 };
@@ -185,7 +185,7 @@ const HowItWorksStep = ({
 }) => {
   return (
     <div className="flex w-full flex-col items-start justify-center px-8 py-6 text-left md:w-1/2">
-      <h3 className="text-xl font-semibold text-purple-500">{title}</h3>
+      <h3 className="text-xl font-semibold text-purple-600">{title}</h3>
       <p className="mt-2 font-semibold text-gray-600">{description}</p>
       <ul className="mt-2">
         {checks.map((check, index) => (
@@ -193,7 +193,7 @@ const HowItWorksStep = ({
             key={index}
             className="text-grey-400 flex items-center font-light"
           >
-            <FaCheck className="mr-2 text-purple-500" />
+            <FaCheck className="mr-2 text-purple-600" />
             {check}
           </li>
         ))}
@@ -204,8 +204,8 @@ const HowItWorksStep = ({
 
 const Pricing = () => {
   return (
-    <div className="bg-gradient-to-r from-purple-400 to-red-500  py-16">
-      <h2 className="text-5xl text-white font-bold text-center mb-8">
+    <div className="bg-white  py-16">
+      <h2 className="text-5xl text-black font-bold text-center mb-8">
         Pricing
       </h2>
       <div className="flex flex-col justify-center mx-6 space-y-6 sm:space-x-8 sm:flex-row sm:space-y-0">
@@ -244,11 +244,11 @@ const Pricing = () => {
 
 const CallToAction = () => {
   return (
-    <div className="flex flex-col items-center bg-white px-6 py-16 text-center">
-      <h2 className="text-3xl font-bold text-purple-500 sm:text-4xl md:text-5xl">
+    <div className="flex flex-col items-center bg-black px-6 py-16 text-center">
+      <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
         Ready to Transform Your Content?
       </h2>
-      <p className="mt-4 max-w-2xl text-lg text-grey-700 sm:text-xl md:text-2xl">
+      <p className="mt-4 max-w-2xl text-sm text-grey-700 sm:text-xl md:text-2xl">
         Join the revolution in lead generation. Turn your content into
         interactive AI experiences and engage your audience like never before.
       </p>
