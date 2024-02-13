@@ -46,7 +46,7 @@ const Hero = () => {
         your digital products or courses.
       </p>
       <div className="mt-3 flex max-w-4xl flex-col flex-wrap items-center justify-around sm:w-full sm:flex-row">
-        <Link href="/lead-magnets">
+        <Link href="/lead-magnet">
           <Button variant="default" className="md:text-xl">
             Create Your First AI Lead Magnet
           </Button>
