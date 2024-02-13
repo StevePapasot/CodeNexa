@@ -65,7 +65,7 @@ function LeadMagnetsContainer({
         <div className="flex flex-col w-full mt-8 items-center">
           <Card>
             <CardHeader className="text-center">
-              <CardTitle className="bg-gradient-to-r from-red-500 to-purple-500 inline-block text-transparent bg-clip-text pb-1 w-fit mx-auto">
+              <CardTitle className="bg-gradient-to-r from-red-500 to-purple-600 inline-block text-transparent bg-clip-text pb-1 w-fit mx-auto">
                 Upgrade To Pro
               </CardTitle>
             </CardHeader>
