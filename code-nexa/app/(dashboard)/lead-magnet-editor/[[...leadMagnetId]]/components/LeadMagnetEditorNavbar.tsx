@@ -91,7 +91,7 @@ function LeadMagnetEditorNavbar() {
     try {
       await remove();
       toast.success("Deleted!");
-      router.push("/lead-magnets");
+      router.push("/lead-magnet");
     } catch (error) {
       console.log(error);
       toast.error("Error deleting. Please try again.");

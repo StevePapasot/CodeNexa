@@ -6,10 +6,10 @@ function LandingPageFooter() {
       <span className="text-white">Contact: </span>
       <span className="font-bold text-purple-600">
         <a
-          href="mailto:brandon@brandonhancock.io"
+          href="mailto:codenexalabs@gmail.com"
           className="text-white hover:underline"
         >
-          brandon@brandonhancock.io
+          codenexalabs@gmail.com
         </a>
       </span>
     </div>
