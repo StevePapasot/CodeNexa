@@ -74,7 +74,7 @@ function LeadMagnetsContainer({
                 {leadMagnets.length} / {MAXIMUM_FREE_LEAD_MAGNETS} Free Lead
                 Magnets Generated
               </p>
-              <Button variant="ai" onClick={upgrade}>
+              <Button  onClick={upgrade}>
                 <span className="mr-2">
                   <HiOutlineSparkles />
                 </span>
