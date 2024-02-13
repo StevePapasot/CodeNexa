@@ -218,7 +218,7 @@ const Pricing = () => {
             <p className="mb-2 text-center text-gray-600">
               Create up to 2 AI Lead Magnets
             </p>
-            <Link href="/lead-magnets">
+            <Link href="/lead-magnet">
               <Button variant="outline">Get Started</Button>
             </Link>
           </CardContent>
@@ -232,7 +232,7 @@ const Pricing = () => {
             <p className="mb-4 text-center text-gray-600">
               Create Unlimited AI Lead Magnets
             </p>
-            <Link href="/lead-magnets">
+            <Link href="/lead-magnet">
               <Button>Get Started</Button>
             </Link>
           </CardContent>
@@ -252,7 +252,7 @@ const CallToAction = () => {
         Join the revolution in lead generation. Turn your content into
         interactive AI experiences and engage your audience like never before.
       </p>
-      <Link href="/lead-magnets">
+      <Link href="/lead-magnet">
         <Button className="text-sm px-4 py-5 sm:text-lg mt-4">
           Create Your First AI Lead Magnet
         </Button>
