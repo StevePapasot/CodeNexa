@@ -72,10 +72,10 @@ function AccountContainer({ account, subscription }: AccountContainerProps) {
 
   return (
     <div className="flex h-full w-full flex-col m-8 gap-y-4">
-      <h1 className="text-2xl font-semibold text-gray-700">Account Home</h1>
+      <h1 className="text-2xl font-semibold text-purple-600">Account Home</h1>
       <hr />
       <div className="w-fit">
-        <label className="mb-2 block text-sm font-bold text-gray-700">
+        <label className="mb-2 block text-sm font-bold text-white">
           Username
         </label>
         <Input
@@ -100,10 +100,10 @@ function AccountContainer({ account, subscription }: AccountContainerProps) {
         </Button>
       </div>
       <hr />
-      <h2 className="text-xl text-gray-700">Subscription</h2>
+      <h2 className="text-xl text-purple-600">Subscription</h2>
       <div className="flex flex-row gap-x-2">
-        <p className="font-semibold text-gray-700">Status:</p>
-        <p className="text-gray-700">{isActive ? "Active" : "Inactive"}</p>
+        <p className="font-semibold text-white">Status:</p>
+        <p className="text-white">{isActive ? "Active" : "Inactive"}</p>
       </div>
       <Button onClick={handleStripe} variant="outline" className="w-fit">
         {isActive ? "Manage Subscription" : "Upgrade to Pro"}
