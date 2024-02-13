@@ -1,60 +1,75 @@
 import { prismadb } from "@/lib/prismadb";
 import { stripe } from "@/utils/stripe";
-import { currentUser } from "@clerk/nextjs";
+import { headers } from "next/headers";
 import { NextResponse } from "next/server";
+import Stripe from "stripe";
 
-export async function GET() {
+export async function POST(req: Request) {
+  const body = await req.text();
+  const signature = headers().get("Stripe-Signature") as string;
+
+  let event: Stripe.Event;
+
+  if (!process.env.STRIPE_WEBHOOK_SECRET)
+    throw new Error("Stripe webhook secret not set");
+
   try {
-    const user = await currentUser();
+    event = stripe.webhooks.constructEvent(
+      body,
+      signature,
+      process.env.STRIPE_WEBHOOK_SECRET
+    );
+  } catch (err) {
+    console.log(`⚠️  Webhook signature verification failed.`, err);
+    return NextResponse.json(
+      { error: "Webhook signature verification failed." },
+      { status: 400 }
+    );
+  }
 
-    if (!user) {
-      return NextResponse.json({ message: "Unauthenticated" }, { status: 401 });
+  const session = event.data.object as Stripe.Checkout.Session;
+
+  const subscription = await stripe.subscriptions.retrieve(
+    session.subscription as string
+  );
+
+  if (event.type === "checkout.session.completed") {
+    if (!session?.metadata?.userId) {
+      return new NextResponse("User id is required", { status: 400 });
     }
 
-    const userSubscription = await prismadb.subscription.findUnique({
-      where: { userId: user.id },
+    await prismadb.subscription.create({
+      data: {
+        userId: session?.metadata?.userId,
+        stripeSubscriptionId: subscription.id,
+        stripeCustomerId: subscription.customer as string,
+        stripeCurrentPeriodEnd: new Date(
+          subscription.current_period_end * 1000
+        ),
+      },
     });
-
-    if (userSubscription && userSubscription.stripeCustomerId) {
-      const stripeSession = await stripe.billingPortal.sessions.create({
-        customer: userSubscription.stripeCustomerId,
-        return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/account`,
-      });
-
-      return NextResponse.json({ url: stripeSession.url }, { status: 200 });
-    }
-
-    const stripeSession = await stripe.checkout.sessions.create({
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/account`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/account`,
-      payment_method_types: ["card"],
-      mode: "subscription",
-      billing_address_collection: "auto",
-      customer_email: user.emailAddresses[0].emailAddress,
-      line_items: [
-        {
-          price_data: {
-            currency: "USD",
-            product_data: {
-              name: "Lead Convert Pro",
-              description: "Unlimited AI Lead Magnets",
-            },
-            unit_amount: 1000,
-            recurring: {
-              interval: "month",
-            },
-          },
-          quantity: 1,
-        },
-      ],
-      metadata: {
-        userId: user.id,
+  } else if (event.type === "invoice.payment_succeeded") {
+    const subscriptionFromDB = await prismadb.subscription.findFirst({
+      where: {
+        stripeSubscriptionId: subscription.id,
       },
     });
 
-    return NextResponse.json({ url: stripeSession.url }, { status: 200 });
-  } catch (e) {
-    console.error("[STRIPE ERROR]", e);
-    return new NextResponse("Internal Error", { status: 500 });
+    if (!subscriptionFromDB) {
+      return new NextResponse("Subscription not found", { status: 404 });
+    }
+
+    await prismadb.subscription.update({
+      where: {
+        stripeSubscriptionId: subscription.id,
+      },
+      data: {
+        stripeCurrentPeriodEnd: new Date(
+          subscription.current_period_end * 1000
+        ),
+      },
+    });
   }
+
+  return new NextResponse(null, { status: 200 });
 }
